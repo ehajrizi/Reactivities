@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Activities;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -19,7 +20,7 @@ namespace API.Controllers
         {
             return await Mediator.Send(new List.Query());
         }
-
+        
         [HttpGet("{id}")] //activities/id
         public async Task<ActionResult<Activity>> GetActivity(Guid id)
         {
